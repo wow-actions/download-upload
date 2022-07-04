@@ -39,7 +39,7 @@ async function run() {
 
     const filename = options.filename || path.basename(options.url)
     const filepath = path.join(options.dir, filename)
-    const res = getContent(octokit, filepath)
+    const res = await getContent(octokit, filepath)
     const resp = await fetch(options.url)
     const buffer = await resp.arrayBuffer()
 
@@ -48,7 +48,7 @@ async function run() {
       path: filepath,
       content: Buffer.from(buffer).toString('base64'),
       message: options.commitMessage,
-      sha: res ? (res as any).data.sha : undefined,
+      sha: res ? (res.data as any).sha : undefined,
     })
 
     core.setOutput('filepath', filepath)
