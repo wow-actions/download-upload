@@ -2,8 +2,8 @@ name: Download Upload
 description: Download a file from url and then upload it to your repo
 author: bubkoo <bubkoo.wy@gmail.com>
 branding:
-  icon: send
-  color: green
+  icon: cloud
+  color: orange
 inputs:
   GITHUB_TOKEN:
     description: Your GitHub token for authentication.
