@@ -37,7 +37,7 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^5.0.0",
-    "node-fetch": "^3.2.6"
+    "node-fetch": "^2.6.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

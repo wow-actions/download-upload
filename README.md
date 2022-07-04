@@ -47,7 +47,7 @@ Various inputs are defined to let you configure the action:
 | `GITHUB_TOKEN` | The GitHub token for authentication | N/A |
 | `url` | The file url to download | N/A |
 | `dir` | The dir path to save the file | N/A |
-| `filename` | The file name to save | N/A |
+| `filename` | The file name to save | Parsed from url |
 | `commit_message` | Commit message when update the file | `'chore: update file [skip ci]'` |
 
 ## Outputs
