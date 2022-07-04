@@ -1,0 +1,30 @@
+name: Download Upload
+description: Download a file from url and then upload it to your repo
+author: bubkoo <bubkoo.wy@gmail.com>
+branding:
+  icon: send
+  color: green
+inputs:
+  GITHUB_TOKEN:
+    description: Your GitHub token for authentication.
+    required: true
+  url:
+    description: The file url to download
+    required: true
+  filename:
+    description: The file name to save
+    required: false
+  dir:
+    description: The dir path to save the file
+    required: false
+  commit_message:
+    description: Commit message when update the file
+    required: false
+    default: 'chore: update file [skip ci]'
+outputs:
+  filepath:
+    description: The file path saved in your repo
+
+runs:
+  using: node12
+  main: dist/index.js
