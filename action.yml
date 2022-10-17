@@ -26,5 +26,5 @@ outputs:
     description: The file path saved in your repo
 
 runs:
-  using: node12
+  using: node16
   main: dist/index.js

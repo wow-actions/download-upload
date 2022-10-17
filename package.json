@@ -1,6 +1,6 @@
 {
   "name": "download-upload",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Download a file from url and then upload it to your repo",
   "main": "dist/index.js",
   "files": [
