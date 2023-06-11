@@ -40,13 +40,22 @@ async function run() {
     const filename = options.filename || path.basename(options.url)
     const filepath = path.join(options.dir, filename)
     const res = await getContent(octokit, filepath)
+    const resStr = Buffer.from((res?.data as any).content, 'base64').toString(
+      'base64',
+    )
     const resp = await fetch(options.url)
     const buffer = await resp.arrayBuffer()
+    const respStr = Buffer.from(buffer).toString('base64')
+
+    if (resStr === respStr) {
+      core.setOutput('filepath', filepath)
+      return
+    }
 
     await octokit.rest.repos.createOrUpdateFileContents({
       ...github.context.repo,
       path: filepath,
-      content: Buffer.from(buffer).toString('base64'),
+      content: respStr,
       message: options.commitMessage,
       sha: res ? (res.data as any).sha : undefined,
     })
